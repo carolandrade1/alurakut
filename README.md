@@ -28,14 +28,14 @@
 ## 📂 Referencias
   <details>
     <summary>Aula 01</summary>
-      - <a href="https://pt-br.reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains">React</a>
-      - <a href="https://www.youtube.com/watch?v=S-jqd6WZ7M0">Mario Souto - Strategy Pattern</a>
-      - <a href="https://www.youtube.com/watch?v=85vJXFpXLQw">Mario Souto - Pegando dados de uma API com React</a>
-      - <a href="https://www.youtube.com/watch?v=-kVnp3fg-v4">Mario Souto - O sistema de rotas do NextJS, principais dúvidas</a>
-      - <a href="https://www.youtube.com/watch?v=yMRSDdifGW8">Mario Souto - Linter</a>
-      - <a href="https://www.youtube.com/watch?v=Cu-HP-gvggg">Mario Souto - Centralizar conteúdo na tela</a>
-      - <a href="https://cssgridgarden.com/">CSS Grid Garden</a>
-      - <a href="https://www.youtube.com/watch?v=UBAX-13g8OM">Rafaella Ballerini - Como usar git e github na prática</a>
+      - <a href="https://pt-br.reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains">React</a> <br>
+      - <a href="https://www.youtube.com/watch?v=S-jqd6WZ7M0">Mario Souto - Strategy Pattern</a> <br>
+      - <a href="https://www.youtube.com/watch?v=85vJXFpXLQw">Mario Souto - Pegando dados de uma API com React</a> <br>
+      - <a href="https://www.youtube.com/watch?v=-kVnp3fg-v4">Mario Souto - O sistema de rotas do NextJS, principais dúvidas</a> <br>
+      - <a href="https://www.youtube.com/watch?v=yMRSDdifGW8">Mario Souto - Linter</a> <br>
+      - <a href="https://www.youtube.com/watch?v=Cu-HP-gvggg">Mario Souto - Centralizar conteúdo na tela</a> <br>
+      - <a href="https://cssgridgarden.com/">CSS Grid Garden</a> <br>
+      - <a href="https://www.youtube.com/watch?v=UBAX-13g8OM">Rafaella Ballerini - Como usar git e github na prática</a> <br>
   </details>
   <details>
     <summary>Aula 02</summary>
