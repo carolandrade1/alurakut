@@ -28,14 +28,14 @@
 ## 📂 Referencias
   <details>
     <summary>Aula 01</summary>
-      [React](https://pt-br.reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains)
-      [Mario Souto - Strategy Pattern](https://www.youtube.com/watch?v=S-jqd6WZ7M0)
-      [Mario Souto - Pegando dados de uma API com React](https://www.youtube.com/watch?v=85vJXFpXLQw)
-      [Mario Souto - O sistema de rotas do NextJS, principais dúvidas](https://www.youtube.com/watch?v=-kVnp3fg-v4)
-      [Mario Souto - Linter](https://www.youtube.com/watch?v=yMRSDdifGW8)
-      [Mario Souto - Centralizar conteúdo na tela](https://www.youtube.com/watch?v=Cu-HP-gvggg)
-      [CSS Grid Garden](https://cssgridgarden.com/)
-      [Rafaella Ballerini - Como usar git e github na prática](https://www.youtube.com/watch?v=UBAX-13g8OM)
+      - [React](https://pt-br.reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains)
+      - [Mario Souto - Strategy Pattern](https://www.youtube.com/watch?v=S-jqd6WZ7M0)
+      - [Mario Souto - Pegando dados de uma API com React](https://www.youtube.com/watch?v=85vJXFpXLQw)
+      - [Mario Souto - O sistema de rotas do NextJS, principais dúvidas](https://www.youtube.com/watch?v=-kVnp3fg-v4)
+      - [Mario Souto - Linter](https://www.youtube.com/watch?v=yMRSDdifGW8)
+      - [Mario Souto - Centralizar conteúdo na tela](https://www.youtube.com/watch?v=Cu-HP-gvggg)
+      - [CSS Grid Garden](https://cssgridgarden.com/)
+      - [Rafaella Ballerini - Como usar git e github na prática](https://www.youtube.com/watch?v=UBAX-13g8OM)
   </details>
   <details>
     <summary>Aula 02</summary>
