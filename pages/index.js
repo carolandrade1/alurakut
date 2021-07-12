@@ -12,7 +12,6 @@ function ProfileSidebar(propriedades) {
   )
 }
 
-
 export default function Home() {
   const githubUser = 'carolandrade1';
   const pessoasFavoritas = [
@@ -22,7 +21,8 @@ export default function Home() {
     'rafaballerini',
     'john-smilga',
     'thecodercoder'
-  ]
+  ];
+
 
   return (
     <>
@@ -56,6 +56,9 @@ export default function Home() {
                 );
               })}
             </ul>
+          </ProfileRelationsBoxWrapper>
+          <ProfileRelationsBoxWrapper>
+            <h2 className="smallTitle">Meus Seguidores ({})</h2>
           </ProfileRelationsBoxWrapper>
         </div>
 
