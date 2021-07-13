@@ -63,5 +63,10 @@
     <summary>Aula 05</summary>
   </details>
 
+## 👩‍🏫/👨‍🏫 Instrutores
+
+- <a href="https://twitter.com/omariosouto">Mario Souto</a> <br>
+- <a href="https://twitter.com/juunegreiros">Juliana Negreiros</a> <br>
+- <a href="https://twitter.com/paulo_caelum">Paulo Silveira</a> <br>
 
 ## <a href="styled-components.md">Example app with styled-components</a>
