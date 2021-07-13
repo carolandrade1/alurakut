@@ -1,5 +1,5 @@
 <h1 align="center">Imersão React - Alurakut</h1>
-<h3 align="justify">A Imersão React é gratuita e é voltada para profissionais, estudantes e para todo mundo que quer aprender mais sobre front-end. Nesta imersão vamos mergulhar no passado e dominar o futuro com o Alurakut! O projeto é uma versão do Orkut, que foi encerrado em 30 de setembro de 2014. </h3>
+<h3 align="justify">A Imersão React é gratuita e é voltada para profissionais, estudantes e para todo mundo que quer aprender mais sobre front-end. Nesta imersão vamos mergulhar no passado e dominar o futuro com o Alurakut! O projeto é uma versão do Orkut, criado com React, styled-components e next/js </h3>
 
 <h3 align="center"> 
 
