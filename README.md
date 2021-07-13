@@ -1,5 +1,5 @@
 <h1 align="center">Imersão React - Alurakut</h1>
-<h3 align="justify">A Imersão React é gratuita e é voltada para profissionais, estudantes e para todo mundo que quer aprender mais sobre front-end. Nesta imersão vamos mergulhar no passado e dominar o futuro com o Alurakut! </h3>
+<h3 align="justify">A Imersão React é gratuita e é voltada para profissionais, estudantes e para todo mundo que quer aprender mais sobre front-end. Nesta imersão vamos mergulhar no passado e dominar o futuro com o Alurakut! O projeto é uma versão do Orkut, que foi encerrado em 30 de setembro de 2014. </h3>
 
 <h3 align="center"> 
 
@@ -9,13 +9,18 @@
 
 ## 📚 Desafios
   - Aula 01
-    - Pegar os dados da API do GitHub e listar seus seguidores
-    - Adicionar quão confiável, legal e sexy você é
-    - Usar Strategy ao invés de vários ifs no css
-    - Separar e organizar o seu código
-    - Publicar o seu projeto
-    - Deixar o seu projeto com a sua cara
+    - Pegar os dados da API do GitHub e listar seus seguidores;
+    - Adicionar quão confiável, legal e sexy você é;
+    - Usar Strategy ao invés de vários ifs no css;
+    - Separar e organizar o seu código;
+    - Publicar o seu projeto;
+    - Deixar o seu projeto com a sua cara;
   - Aula 02
+    - Criar suas comunidades para compartilhar com a gente;
+    - Facilitar o cadastro da url da imagem;
+    - Adicionar links para as suas comunidades
+    - Adicionar o seu projeto na nossa vitrine;
+    - Deixar o seu read me do projeto bonitão.
   - Aula 03
   - Aula 04
   - Aula 05
@@ -39,6 +44,9 @@
   </details>
   <details>
     <summary>Aula 02</summary>
+      - <a href="https://www.youtube.com/watch?v=yMRSDdifGW8&t=2s">Mario Souto - Github Pro + Eslint</a> <br>
+      - <a href="https://www.youtube.com/watch?v=jOAU81jdi-c&list=PLTcmLKdIkOWmeNferJ292VYKBXydGeDej">Criando Flappy Bird com JavaScript - Mario Souto</a> <br>
+      - <a href="https://www.youtube.com/watch?v=JbzcLKiTThk">Aprender forEach e map - Mario Souto</a> <br>
   </details>
   <details>
     <summary>Aula 03</summary>
