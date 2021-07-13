@@ -7,6 +7,11 @@
 
 </h3>
 
+## 📺 Imagem
+
+![projetoatual](https://user-images.githubusercontent.com/65976843/125528271-6d04c83d-ede2-480c-af54-33d25e038f2d.PNG)
+
+
 ## 📚 Desafios
   - Aula 01
     - Pegar os dados da API do GitHub e listar seus seguidores;
