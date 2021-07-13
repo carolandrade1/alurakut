@@ -14,18 +14,18 @@
 
 ## 📚 Desafios
   - Aula 01
-    - Pegar os dados da API do GitHub e listar seus seguidores;
-    - Adicionar quão confiável, legal e sexy você é;
-    - Usar Strategy ao invés de vários ifs no css;
-    - Separar e organizar o seu código;
-    - Publicar o seu projeto;
-    - Deixar o seu projeto com a sua cara;
+    - [ ] Pegar os dados da API do GitHub e listar seus seguidores;
+    - [x] Adicionar quão confiável, legal e sexy você é;
+    - [ ] Usar Strategy ao invés de vários ifs no css;
+    - [x] Separar e organizar o seu código;
+    - [x] Publicar o seu projeto;
+    - [x] Deixar o seu projeto com a sua cara;
   - Aula 02
-    - Criar suas comunidades para compartilhar com a gente;
-    - Facilitar o cadastro da url da imagem;
-    - Adicionar links para as suas comunidades
-    - Adicionar o seu projeto na nossa vitrine;
-    - Deixar o seu read me do projeto bonitão.
+    - [x] Criar suas comunidades para compartilhar com a gente;
+    - [x] Facilitar o cadastro da url da imagem;
+    - [x] Adicionar links para as suas comunidades
+    - [x] Adicionar o seu projeto na nossa vitrine;
+    - [x] Deixar o seu read me do projeto bonitão.
   - Aula 03
   - Aula 04
   - Aula 05
