@@ -12,6 +12,37 @@ function ProfileSidebar(propriedades) {
   )
 }
 
+function meusSeguidores({githubUser}) {
+  const [seguidor, setSeguidor] = useState([]);
+  
+  useEffect (async () => {
+    const url = `https://api.github.com/users/${githubUser}/followers`;
+    const resposta = await fetch(url);
+    setSeguidor(await resposta.json());
+  }, []);
+  
+  const seguidores = seguidor.slice(0,6);
+
+  return (
+    <ProfileRelationsBoxWrapper>
+      <h2 className="smallTitle">Meus Seguidores ({seguidor.length})</h2>
+
+      <ul>
+        {seguidores.map((seguidor) => {
+          return (
+            <li key={seguidor.id}>
+              <a href={seguidor.html_url}>
+                <img src={`https://github.com/${seguidor.login}.png`} />
+                <span>{seguidor.login}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </ProfileRelationsBoxWrapper>
+  );
+}
+
 export default function Home() {
   const githubUser = 'carolandrade1';
   const pessoasFavoritas = [
@@ -22,7 +53,6 @@ export default function Home() {
     'john-smilga',
     'thecodercoder'
   ];
-
 
   return (
     <>
@@ -57,12 +87,11 @@ export default function Home() {
               })}
             </ul>
           </ProfileRelationsBoxWrapper>
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Meus Seguidores ({})</h2>
-          </ProfileRelationsBoxWrapper>
+
+          <meusSeguidores githubUser={githubUser} />
         </div>
 
       </MainGrid>
     </>
   )
-}
+};
