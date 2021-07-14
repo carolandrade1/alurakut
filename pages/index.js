@@ -22,67 +22,79 @@ function ProfileSidebar(propriedades) {
   )
 }
 
-// function meusSeguidores(item) {
-//   const [seguidor, setSeguidor] = useState([]);
-  
-//   useEffect (async () => {
-//     const url = `https://api.github.com/users/${item.githubUser}/followers`;
-//     const resposta = await fetch(url);
-//     setSeguidor(await resposta.json());
-//   }, []);
-  
-//   const seguidores = seguidor.slice(0,6);
+function ProfileRelationsBox(propriedades) {
+  console.log(propriedades)
+  return (
+    <ProfileRelationsBoxWrapper>
+      <h2 className="smallTitle">{propriedades.title} ({propriedades.items.length})</h2>
 
-//   return (
-//     <ProfileRelationsBoxWrapper>
-//       <h2 className="smallTitle">Meus Seguidores ({seguidor.length})</h2>
-
-//       <ul>
-//         {seguidores.map((seguidor) => {
-//           return (
-//             <li key={seguidor.id}>
-//               <a href={seguidor.html_url}>
-//                 <img src={`https://github.com/${seguidor.login}.png`} />
-//                 <span>{seguidor.login}</span>
-//               </a>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </ProfileRelationsBoxWrapper>
-//   );
-// }
+      <ul>
+        {propriedades.items.slice(0,6).map((itemAtual) => {
+          return (
+            <li key={itemAtual.id}>
+              <a href={itemAtual.html_url} target="_blank" rel="noopener noreferrer">
+                <img src={itemAtual.avatar_url} />
+                <span>{itemAtual.login}</span>
+              </a>
+            </li>
+          ); 
+        })}
+      </ul>
+    </ProfileRelationsBoxWrapper>
+  )
+}
 
 export default function Home() {
   const githubUser = 'carolandrade1';
   const [comunidades, setComunidades] = React.useState([{
-    id: '01',
+    id: '09619819815968',
     url: 'https://www.alura.com.br/',
     title: 'Alura',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvHnrABvcShcCoG_01ZN3q8oGA4CiEhdr1vw&usqp=CAU'
   }]);
-  const pessoasFavoritas = [
-    'juunegreiros',
-    'omariosouto',
-    'peas',
-    'rafaballerini',
-    'john-smilga',
-    'thecodercoder'
-  ];
+
+  // SEGUIDORES
+  const [seguidores, setSeguidores] = React.useState([]);
+  React.useEffect(function () {
+    fetch('https://api.github.com/users/carolandrade1/followers')
+      .then(function (respostaDoServidor) {
+        return respostaDoServidor.json();
+      })
+      .then(function (respostaCompleta) {
+        setSeguidores(respostaCompleta);
+      })
+  }, [])
+
+  // SEGUINDO
+  const [seguindo, setSeguindo] = React.useState([]);
+  React.useEffect(function () {
+    fetch('https://api.github.com/users/carolandrade1/following')
+      .then(function (respostaDoServidor) {
+        return respostaDoServidor.json();
+      })
+      .then(function (respostaCompleta) {
+        setSeguindo(respostaCompleta);
+      })
+  }, [])
 
   return (
     <>
-      <AlurakutMenu githubUser={githubUser}/>
+      <AlurakutMenu githubUser={githubUser} />
       <MainGrid>
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
-          <ProfileSidebar githubUser={githubUser}/>
+          <ProfileSidebar githubUser={githubUser} />
         </div>
-        
+
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
           <Box>
-            <h1 className="title">Bem vindo(a)</h1>
+            <h1 className="title">Bem vindo(a), Carol!</h1>
             <OrkutNostalgicIconSet />
           </Box>
+          {/* <Box>
+            <h2 className="subTitle">O que você deseja fazer ?</h2>
+            <button>Criar comunidade</button>
+            <button>Criar texto</button>
+          </Box> */}
           <Box>
             <h2 className="subTitle">O que você deseja fazer ?</h2>
             <form onSubmit={function handleCriaComunidade(e) {
@@ -103,8 +115,8 @@ export default function Home() {
                   placeholder="Qual vai ser o nome da sua comunidade?"
                   name="title"
                   aria-label="Qual vai ser o nome da sua comunidade"
-                  type="text" 
-                  />
+                  type="text"
+                />
               </div>
               <div>
                 <input
@@ -112,7 +124,7 @@ export default function Home() {
                   name="image"
                   aria-label="Coloque a URL para usarmos de capa"
                   type="text"
-                  />
+                />
               </div>
               <div>
                 <input
@@ -128,11 +140,16 @@ export default function Home() {
             </form>
           </Box>
         </div>
-        
-        <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea'}}>
+
+        <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
+
+          <ProfileRelationsBox title="Seguidores" items={seguidores} />
+
+          <ProfileRelationsBox title="Seguindo" items={seguindo} />
+
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
-            
+
             <ul>
               {comunidades.map((itemAtual) => {
                 return (
@@ -146,25 +163,8 @@ export default function Home() {
               })}
             </ul>
           </ProfileRelationsBoxWrapper>
-              
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Pessoas da Comunidade ({pessoasFavoritas.length})</h2>
 
-            <ul>
-              {pessoasFavoritas.map((itemAtual) => { 
-                return (
-                  <li key={itemAtual}>
-                    <a href={`https://github.com/${itemAtual}`}>
-                      <img src={`https://github.com/${itemAtual}.png`} />
-                      <span>{itemAtual}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </ProfileRelationsBoxWrapper>
 
-          {/* <meusSeguidores githubUser={githubUser} /> */}
         </div>
 
       </MainGrid>

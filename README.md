@@ -14,7 +14,7 @@
 
 ## 📚 Desafios
   - Aula 01
-    - [ ] Pegar os dados da API do GitHub e listar seus seguidores;
+    - [x] Pegar os dados da API do GitHub e listar seus seguidores;
     - [x] Adicionar quão confiável, legal e sexy você é;
     - [ ] Usar Strategy ao invés de vários ifs no css;
     - [x] Separar e organizar o seu código;
@@ -27,6 +27,10 @@
     - [x] Adicionar o seu projeto na nossa vitrine;
     - [x] Deixar o seu read me do projeto bonitão.
   - Aula 03
+    - [x] Terminar de listar seus seguidores através da api do Github;
+    - [x] Adicionar suas comunidades no DatoCMS;
+    - [ ] Organizar os seus dados, pensando no que irá querer que apareça no seu Alurakut e criando os modelos que precisar;
+    - [x] Subir sua aplicação na Vercel.
   - Aula 04
   - Aula 05
 
@@ -55,6 +59,8 @@
   </details>
   <details>
     <summary>Aula 03</summary>
+      - <a href="https://www.youtube.com/watch?v=aiZSAn_2SJc">O que é Wordpress</a> <br>
+      - <a href="https://www.youtube.com/watch?v=IZi6nogysRM">Mario Souto - O que é um CMS</a> <br>
   </details>
   <details>
     <summary>Aula 04</summary>
@@ -68,5 +74,20 @@
 - <a href="https://twitter.com/omariosouto">Mario Souto</a> <br>
 - <a href="https://twitter.com/juunegreiros">Juliana Negreiros</a> <br>
 - <a href="https://twitter.com/paulo_caelum">Paulo Silveira</a> <br>
+
+<!-- ## Instalação
+
+<code>
+  # Clonar repositorio
+  $ git clone https://github.com/brfeitoza/alurakut.git && cd alurakut
+
+  # Instalar dependencias
+  $ yarn
+
+  # Rodar aplicativo
+  $ npm run dev
+
+</code> -->
+
 
 ## <a href="styled-components.md">Example app with styled-components</a>
