@@ -131,7 +131,7 @@ export default function Home() {
                   type="text"
                 />
               </div>
-              <button type="button" aria-label="Criar comunidade" >
+              <button type="button" aria-label="Criar comunidade" style={{ background: '#2E7BB4' }} >
                 Criar comunidade
               </button>
             </form>
