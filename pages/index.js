@@ -30,7 +30,7 @@ function ProfileRelationsBox(propriedades) {
       <h2 className="smallTitle">{propriedades.title} ({propriedades.items.length})</h2>
 
       <ul>
-        {propriedades.items.slice(0,6).map((itemAtual) => {
+        {propriedades.items.slice(0, 6).map((itemAtual) => {
           return (
             <li key={itemAtual.id}>
               <a href={itemAtual.html_url} target="_blank" rel="noopener noreferrer" title="Site do usuário">
@@ -38,7 +38,7 @@ function ProfileRelationsBox(propriedades) {
                 <span>{itemAtual.login}</span>
               </a>
             </li>
-          ); 
+          );
         })}
       </ul>
     </ProfileRelationsBoxWrapper>
@@ -53,7 +53,7 @@ export default function Home() {
   const [seguidores, setSeguidores] = React.useState([]);
   // SEGUINDO
   const [seguindo, setSeguindo] = React.useState([]);
- 
+
   React.useEffect(function () {
     fetch('https://api.github.com/users/carolandrade1/followers')
       .then(function (respostaDoServidor) {
@@ -79,7 +79,8 @@ export default function Home() {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({ "query": `query {
+      body: JSON.stringify({
+        "query": `query {
         allCommunities {
           id
           title
@@ -88,21 +89,21 @@ export default function Home() {
         }
       }` })
     })
-    .then((resposta) => resposta.json())
-    .then((respostaCompleta) => {
-      const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
-      console.log(comunidadesVindasDoDato);
-      setComunidades(comunidadesVindasDoDato);
-    })
+      .then((resposta) => resposta.json())
+      .then((respostaCompleta) => {
+        const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
+        console.log(comunidadesVindasDoDato);
+        setComunidades(comunidadesVindasDoDato);
+      })
 
   }, [])
-
 
   return (
     <>
       <IndexPage />
       <AlurakutMenu githubUser={githubUser} />
       <MainGrid>
+        
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
           <ProfileSidebar githubUser={githubUser} />
         </div>
@@ -131,13 +132,13 @@ export default function Home() {
                 },
                 body: JSON.stringify(comunidade),
               })
-              .then(async (response) => {
-                const dados = await response.json();
-                console.log(dados.registroCriado);
-                const comunidade = dados.registroCriado;
-                const comunidadesAtualizadas = [...comunidades, comunidade]
-                setComunidades(comunidadesAtualizadas);
-              })
+                .then(async (response) => {
+                  const dados = await response.json();
+                  console.log(dados.registroCriado);
+                  const comunidade = dados.registroCriado;
+                  const comunidadesAtualizadas = [...comunidades, comunidade]
+                  setComunidades(comunidadesAtualizadas);
+                })
 
 
             }}>
@@ -165,7 +166,7 @@ export default function Home() {
                   type="text"
                 />
               </div>
-              <button type="button" aria-label="Criar comunidade" style={{ background: '#2E7BB4' }} >
+              <button type="submit" aria-label="Criar comunidade" style={{ background: '#2E7BB4' }} >
                 Criar comunidade
               </button>
             </form>
