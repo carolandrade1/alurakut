@@ -190,30 +190,30 @@ export function AlurakutProfileSidebarMenuDefault() {
         <AlurakutProfileSidebarMenuDefault.Wrapper>
             <nav>
                 <a href="/">
-                    <img src={`${BASE_URL}/icons/user.svg`} />
+                    <img src={`${BASE_URL}/icons/user.svg`} alt="Ícone Perfil" />
                     Perfil
                 </a>
                 <a href="/">
-                    <img src={`${BASE_URL}/icons/book.svg`} />
+                    <img src={`${BASE_URL}/icons/book.svg`} alt="Ícone Recados" />
                     Recados
                 </a>
                 <a href="/">
-                    <img src={`${BASE_URL}/icons/camera.svg`} />
+                    <img src={`${BASE_URL}/icons/camera.svg`} alt="Ícone Fotos" />
                     Fotos
                 </a>
                 <a href="/">
-                    <img src={`${BASE_URL}/icons/sun.svg`} />
+                    <img src={`${BASE_URL}/icons/sun.svg`} alt="Ícone Depoimentos" />
                     Depoimentos
                 </a>
             </nav>
             <hr />
             <nav>
                 <a href="/">
-                    <img src={`${BASE_URL}/icons/plus.svg`} />
+                    <img src={`${BASE_URL}/icons/plus.svg`} alt="Ícone Github Trends" />
                     GitHub Trends
                 </a>
                 <a href="/logout">
-                    <img src={`${BASE_URL}//icons/logout.svg`} />
+                    <img src={`${BASE_URL}//icons/logout.svg`} alt="Ícone Sair" />
                     Sair
                 </a>
             </nav>
