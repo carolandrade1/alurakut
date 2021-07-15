@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import NextLink from 'next/link';
 
-const BASE_URL = 'http://alurakut.vercel.app/';
+const BASE_URL = 'https://alurakut.vercel.app/';
 const v = '1';
 
 
@@ -24,7 +24,7 @@ export function AlurakutMenu({ githubUser }) {
     return (
         <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
             <div className="container">
-                <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
+                <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} alt="Logo Alurakut" />
 
                 <nav style={{ flex: 1 }}>
                     {[{ name: 'Inicio', slug: '/' }, { name: 'Amigos', slug: '/amigos' }, { name: 'Comunidades', slug: '/comunidades' }].map((menuItem) => (
@@ -43,7 +43,7 @@ export function AlurakutMenu({ githubUser }) {
                     </div>
                 </nav>
 
-                <button onClick={() => setMenuState(!isMenuOpen)}>
+                <button type="button" title="Menu" onClick={() => setMenuState(!isMenuOpen)}>
                     {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} />}
                     {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />}
                 </button>
