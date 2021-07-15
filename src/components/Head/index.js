@@ -1,18 +1,17 @@
-import React from 'react';
-import MetaTags from 'react-meta-tags';
+import Head from 'next/head';
 
-class Component1 extends React.Component {
-    render() {
-        return (
-            <div class="wrapper">
-                <MetaTags>
-                    <meta charset="utf-8" />
-                    <link rel="icon" href="./Orkut_Logo_2.png" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta name="description" content="Site Alurakut (Baseado Orkut)" />
-                    <title>Alurakut</title>
-                </MetaTags>
-            </div>
-        )
-    }
+function IndexPage() {
+    return (
+        <>
+            <Head htmlAttributes={{ lang: 'pt-BR' }}>
+                <meta charset="UTF-8" />
+                <meta name="description" content="Site Alurakut (baseado no Orkut)" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="icon" href="https://i.postimg.cc/kMhscPdk/Orkut-Logo-2.png" type="image/png" />
+                <title>Alurakut</title>
+            </Head>
+        </>
+    )
 }
+
+export default IndexPage

@@ -32,9 +32,9 @@
     - [ ] Organizar os seus dados, pensando no que irá querer que apareça no seu Alurakut e criando os modelos que precisar;
     - [x] Subir sua aplicação na Vercel.
   - Aula 04
-    - [ ]Configurar suas variáveis de ambiente;
-    - [ ]Fazer os scraps;
-    - [x]Subir sua aplicação na Vercel.
+    - [ ] Configurar suas variáveis de ambiente;
+    - [ ] Fazer os scraps;
+    - [x] Subir sua aplicação na Vercel.
   - Aula 05
 
 
