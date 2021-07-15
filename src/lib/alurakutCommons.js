@@ -44,8 +44,8 @@ export function AlurakutMenu({ githubUser }) {
                 </nav>
 
                 <button type="button" title="Menu" onClick={() => setMenuState(!isMenuOpen)}>
-                    {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} alt="Abrir menu" />}
-                    {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} alt="Fechar menu" />}
+                  {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} alt="Fechar menu" />}
+                  {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} alt="Abrir menu" />}
                 </button>
             </div>
             <AlurakutMenuProfileSidebar githubUser={githubUser} />

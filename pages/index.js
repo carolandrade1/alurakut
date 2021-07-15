@@ -47,15 +47,13 @@ function ProfileRelationsBox(propriedades) {
 
 export default function Home() {
   const githubUser = 'carolandrade1';
-  const [comunidades, setComunidades] = React.useState([{
-    id: '09619819815968',
-    url: 'https://www.alura.com.br/',
-    title: 'Alura',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvHnrABvcShcCoG_01ZN3q8oGA4CiEhdr1vw&usqp=CAU'
-  }]);
-
+  // COMUNIDADES
+  const [comunidades, setComunidades] = React.useState([]);
   // SEGUIDORES
   const [seguidores, setSeguidores] = React.useState([]);
+  // SEGUINDO
+  const [seguindo, setSeguindo] = React.useState([]);
+ 
   React.useEffect(function () {
     fetch('https://api.github.com/users/carolandrade1/followers')
       .then(function (respostaDoServidor) {
@@ -64,11 +62,7 @@ export default function Home() {
       .then(function (respostaCompleta) {
         setSeguidores(respostaCompleta);
       })
-  }, [])
 
-  // SEGUINDO
-  const [seguindo, setSeguindo] = React.useState([]);
-  React.useEffect(function () {
     fetch('https://api.github.com/users/carolandrade1/following')
       .then(function (respostaDoServidor) {
         return respostaDoServidor.json();
@@ -76,7 +70,33 @@ export default function Home() {
       .then(function (respostaCompleta) {
         setSeguindo(respostaCompleta);
       })
+
+    // API DATOCMS GraphQL  
+    fetch('https://graphql.datocms.com/', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'd9935724b7a2faf1e7d9809795a09a',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({ "query": `query {
+        allCommunities {
+          id
+          title
+          imageUrl
+          paginaUrl
+        }
+      }` })
+    })
+    .then((resposta) => resposta.json())
+    .then((respostaCompleta) => {
+      const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
+      console.log(comunidadesVindasDoDato);
+      setComunidades(comunidadesVindasDoDato);
+    })
+
   }, [])
+
 
   return (
     <>
@@ -99,13 +119,27 @@ export default function Home() {
               const dadosDoForm = new FormData(e.target);
 
               const comunidade = {
-                id: new Date().toISOString(),
-                url: dadosDoForm.get('url'),
                 title: dadosDoForm.get('title'),
-                image: dadosDoForm.get('image')
+                imageUrl: dadosDoForm.get('image'),
+                paginaUrl: dadosDoForm.get('url')
               }
-              const comunidadesAtualizadas = [...comunidades, comunidade]
-              setComunidades(comunidadesAtualizadas);
+
+              fetch('/api/comunidades', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(comunidade),
+              })
+              .then(async (response) => {
+                const dados = await response.json();
+                console.log(dados.registroCriado);
+                const comunidade = dados.registroCriado;
+                const comunidadesAtualizadas = [...comunidades, comunidade]
+                setComunidades(comunidadesAtualizadas);
+              })
+
+
             }}>
               <div>
                 <input
@@ -151,8 +185,8 @@ export default function Home() {
               {comunidades.map((itemAtual) => {
                 return (
                   <li key={itemAtual.id}>
-                    <a href={itemAtual.url} target="_blank" rel="noopener noreferrer" title="Site da comunidade">
-                      <img src={itemAtual.image} alt="Capa da comunidade" />
+                    <a href={itemAtual.paginaUrl} target="_blank" rel="noopener noreferrer" title="Site da comunidade">
+                      <img src={itemAtual.imageUrl} alt="Capa da comunidade" />
                       <span>{itemAtual.title}</span>
                     </a>
                   </li>
