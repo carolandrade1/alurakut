@@ -3,7 +3,7 @@ import Head from 'next/head';
 function IndexPage() {
     return (
         <>
-            <Head htmlAttributes={{ lang: 'pt-BR' }}>
+            <Head>
                 <meta charset="UTF-8" />
                 <meta name="description" content="Site Alurakut (baseado no Orkut)" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />

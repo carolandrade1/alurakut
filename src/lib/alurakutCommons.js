@@ -44,8 +44,8 @@ export function AlurakutMenu({ githubUser }) {
                 </nav>
 
                 <button type="button" title="Menu" onClick={() => setMenuState(!isMenuOpen)}>
-                    {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} />}
-                    {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />}
+                    {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} alt="Abrir menu" />}
+                    {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} alt="Fechar menu" />}
                 </button>
             </div>
             <AlurakutMenuProfileSidebar githubUser={githubUser} />
@@ -255,7 +255,7 @@ export function OrkutNostalgicIconSet(props) {
                         {name}
                     </span>
                     <span className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
-                        <img key={`orkut__icon_set__${slug}_img`} className="OrkutNostalgicIconSet__iconSample" src={`https://alurakut.vercel.app/icons/${icon}.svg`} />
+                        <img key={`orkut__icon_set__${slug}_img`} className="OrkutNostalgicIconSet__iconSample" src={`https://alurakut.vercel.app/icons/${icon}.svg`} alt="icones" />
                         {props[slug] ? props[slug] : 0}
                     </span>
                 </li>
