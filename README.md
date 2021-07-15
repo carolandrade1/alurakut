@@ -32,6 +32,9 @@
     - [ ] Organizar os seus dados, pensando no que irá querer que apareça no seu Alurakut e criando os modelos que precisar;
     - [x] Subir sua aplicação na Vercel.
   - Aula 04
+    - [ ]Configurar suas variáveis de ambiente;
+    - [ ]Fazer os scraps;
+    - [x]Subir sua aplicação na Vercel.
   - Aula 05
 
 
@@ -64,6 +67,10 @@
   </details>
   <details>
     <summary>Aula 04</summary>
+      - <a href="https://www.youtube.com/watch?v=RLP9MixVZvw&t">Ju Negreiros - Hello World com GraphQL</a> <br>
+      - <a href="https://medium.com/@omariosouto/entendendo-como-fazer-ajax-com-a-fetchapi-977ff20da3c6">Como fazer ajax</a> <br>
+      - <a href="https://www.youtube.com/watch?v=IZi6nogysRM&t">Mario Souto - O que é um CMS?</a> <br>
+      - <a href="https://www.youtube.com/watch?v=BP2KQtCyzo8">Mario Souto - Variáveis de ambiente e segurança</a> <br>
   </details>
   <details>
     <summary>Aula 05</summary>

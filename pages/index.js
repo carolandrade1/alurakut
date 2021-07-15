@@ -11,7 +11,7 @@ function ProfileSidebar(propriedades) {
       <img src={`https://github.com/${propriedades.githubUser}.png`} alt="Foto de Perfil" style={{ borderRadius: '8px' }} />
       <hr />
       <p>
-        <a className="boxLink" href={`https://github.com/${propriedades.githubUser}`}>
+        <a className="boxLink" href={`https://github.com/${propriedades.githubUser}`} title="Nome do usuário">
           @{propriedades.githubUser}
         </a>
       </p>
@@ -32,8 +32,8 @@ function ProfileRelationsBox(propriedades) {
         {propriedades.items.slice(0,6).map((itemAtual) => {
           return (
             <li key={itemAtual.id}>
-              <a href={itemAtual.html_url} target="_blank" rel="noopener noreferrer">
-                <img src={itemAtual.avatar_url} />
+              <a href={itemAtual.html_url} target="_blank" rel="noopener noreferrer" title="Site do usuário">
+                <img src={itemAtual.avatar_url} alt="Avatar do usuário" />
                 <span>{itemAtual.login}</span>
               </a>
             </li>
@@ -90,11 +90,6 @@ export default function Home() {
             <h1 className="title">Bem vindo(a), Carol!</h1>
             <OrkutNostalgicIconSet />
           </Box>
-          {/* <Box>
-            <h2 className="subTitle">O que você deseja fazer ?</h2>
-            <button>Criar comunidade</button>
-            <button>Criar texto</button>
-          </Box> */}
           <Box>
             <h2 className="subTitle">O que você deseja fazer ?</h2>
             <form onSubmit={function handleCriaComunidade(e) {
@@ -134,7 +129,7 @@ export default function Home() {
                   type="text"
                 />
               </div>
-              <button>
+              <button type="button" aria-label="Criar comunidade" >
                 Criar comunidade
               </button>
             </form>
@@ -154,8 +149,8 @@ export default function Home() {
               {comunidades.map((itemAtual) => {
                 return (
                   <li key={itemAtual.id}>
-                    <a href={itemAtual.url} target="_blank" rel="noopener noreferrer">
-                      <img src={itemAtual.image} />
+                    <a href={itemAtual.url} target="_blank" rel="noopener noreferrer" title="Site da comunidade">
+                      <img src={itemAtual.image} alt="Capa da comunidade" />
                       <span>{itemAtual.title}</span>
                     </a>
                   </li>
@@ -163,7 +158,6 @@ export default function Home() {
               })}
             </ul>
           </ProfileRelationsBoxWrapper>
-
 
         </div>
 
