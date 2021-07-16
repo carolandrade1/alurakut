@@ -32,10 +32,15 @@
     - [ ] Organizar os seus dados, pensando no que irá querer que apareça no seu Alurakut e criando os modelos que precisar;
     - [x] Subir sua aplicação na Vercel.
   - Aula 04
-    - [ ] Configurar suas variáveis de ambiente;
-    - [ ] Fazer os scraps;
+    - [x] Configurar suas variáveis de ambiente;
+    - [x] Fazer os scraps;
     - [x] Subir sua aplicação na Vercel.
   - Aula 05
+    - [ ] Fazer o logout da aplicação;
+    - [ ] Mensagem de feedback quando não conseguir logar na aplicação;
+    - [ ] Criar página de perfil do usuário;
+    - [x] Subir a sua aplicação na Vercel e compartilhar com a gente.
+
 
 
 ## 💻 Linguagens e tecnologias utilizadas
@@ -74,6 +79,13 @@
   </details>
   <details>
     <summary>Aula 05</summary>
+      - <a href="https://www.youtube.com/watch?v=x5Hs8kXlktM&t">Mario Souto - Rotas Next</a> <br>
+      - <a href="https://www.youtube.com/watch?v=zSl_n-9yGRs">Mario Souto - Cookies e LocalStorage</a> <br>
+      - <a href="https://www.youtube.com/watch?v=76eEzmx3irs">Mario Souto - SEO, Performance e Segurança no Front End</a> <br>
+      - <a href="https://www.alura.com.br/artigos/como-funciona-o-import-e-export-do-javascript">Post - Como funciona import e export do Javascript</a> <br>
+      - <a href="https://reactrouter.com/web/guides/quick-start">React Router DOM</a> <br>
+      - <a href="https://www.postman.com/">Postman</a> <br>
+      - <a href="https://www.youtube.com/watch?v=f8a-qwKC5yk">Ju Negreiros - Destructuring</a> <br>
   </details>
 
 ## 👩‍🏫/👨‍🏫 Instrutores
@@ -86,7 +98,7 @@
 
 <code>
   # Clonar repositorio
-  $ git clone https://github.com/brfeitoza/alurakut.git && cd alurakut
+  $ git clone https://github.com/carolandrade1/alurakut.git && cd alurakut
 
   # Instalar dependencias
   $ yarn

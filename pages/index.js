@@ -9,7 +9,7 @@ function ProfileSidebar(propriedades) {
   // console.log(propriedades);
   return (
     <Box as="aside">
-      <img src={`https://github.com/${propriedades.githubUser}.png`} alt="Foto de Perfil" style={{ borderRadius: '8px' }} />
+      <img src={`https://github.com/${propriedades.githubUser}.png`} alt="Foto do usuário" style={{ borderRadius: '8px' }} />
       <hr />
       <p>
         <a className="boxLink" href={`https://github.com/${propriedades.githubUser}`} title="Nome do usuário" target="_blank" rel="noopener noreferrer" >
@@ -139,8 +139,6 @@ export default function Home() {
                   const comunidadesAtualizadas = [...comunidades, comunidade]
                   setComunidades(comunidadesAtualizadas);
                 })
-
-
             }}>
               <div>
                 <input
@@ -183,7 +181,7 @@ export default function Home() {
             <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
 
             <ul>
-              {comunidades.map((itemAtual) => {
+              {comunidades.slice(0, 6).map((itemAtual) => {
                 return (
                   <li key={itemAtual.id}>
                     <a href={itemAtual.paginaUrl} target="_blank" rel="noopener noreferrer" title="Site da comunidade">
