@@ -210,14 +210,14 @@ export default function Home(props) {
 
 export async function getServerSideProps(context) {
   const cookies = nookies.get(context);
-  // if (!cookies.USER_TOKEN) {
-  //   return {
-  //     redirect: {
-  //       destination: '/login',
-  //       permanent: false,
-  //     }
-  //   }
-  // }
+  if (!cookies.USER_TOKEN) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
+  }
 
   const token = cookies.USER_TOKEN;
   const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
