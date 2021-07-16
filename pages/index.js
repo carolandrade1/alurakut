@@ -103,7 +103,7 @@ export default function Home(props) {
   return (
     <>
       <IndexPage />
-      <AlurakutMenu githubUser={githubUser} />
+      <AlurakutMenu />
       <MainGrid>
         
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
@@ -115,6 +115,11 @@ export default function Home(props) {
             <h1 className="title">Bem vindo(a), {githubUser}!</h1>
             <OrkutNostalgicIconSet />
           </Box>
+          {/* <Box>
+            <h2 className="subTitle">O que você deseja fazer ?</h2>
+            <button aria-label="Criar comunidade" style={{ background: '#2E7BB4' }}>Criar Comunidade</button>
+            <button aria-label="Criar post" style={{ background: '#2E7BB4' }}>Criar Post</button>
+          </Box> */}
           <Box>
             <h2 className="subTitle">O que você deseja fazer ?</h2>
             <form onSubmit={function handleCriaComunidade(e) {
@@ -175,10 +180,6 @@ export default function Home(props) {
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
 
-          <ProfileRelationsBox title="Seguidores" items={seguidores} />
-
-          <ProfileRelationsBox title="Seguindo" items={seguindo} />
-
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
 
@@ -196,6 +197,10 @@ export default function Home(props) {
             </ul>
           </ProfileRelationsBoxWrapper>
 
+          <ProfileRelationsBox title="Seguidores" items={seguidores} />
+
+          <ProfileRelationsBox title="Seguindo" items={seguindo} />
+
         </div>
 
       </MainGrid>
@@ -205,14 +210,14 @@ export default function Home(props) {
 
 export async function getServerSideProps(context) {
   const cookies = nookies.get(context);
-  if (!cookies.USER_TOKEN) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      }
-    }
-  }
+  // if (!cookies.USER_TOKEN) {
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false,
+  //     }
+  //   }
+  // }
 
   const token = cookies.USER_TOKEN;
   const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
