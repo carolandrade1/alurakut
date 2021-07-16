@@ -1,7 +1,9 @@
 import React from 'react';
+import nookies from 'nookies';
+import jwt from 'jsonwebtoken';
 import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
-import IndexPage from '../src/components/Head';
+import IndexPage from '../src/components/IndexPage';
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/alurakutCommons';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
 
@@ -24,7 +26,6 @@ function ProfileSidebar(propriedades) {
 }
 
 function ProfileRelationsBox(propriedades) {
-  console.log(propriedades)
   return (
     <ProfileRelationsBoxWrapper>
       <h2 className="smallTitle">{propriedades.title} ({propriedades.items.length})</h2>
@@ -45,8 +46,8 @@ function ProfileRelationsBox(propriedades) {
   )
 }
 
-export default function Home() {
-  const githubUser = 'carolandrade1';
+export default function Home(props) {
+  const githubUser = props.githubUser;
   // COMUNIDADES
   const [comunidades, setComunidades] = React.useState([]);
   // SEGUIDORES
@@ -55,7 +56,8 @@ export default function Home() {
   const [seguindo, setSeguindo] = React.useState([]);
 
   React.useEffect(function () {
-    fetch('https://api.github.com/users/carolandrade1/followers')
+    const urlFollowers = `https://api.github.com/users/${githubUser}/followers`
+    fetch(urlFollowers)
       .then(function (respostaDoServidor) {
         return respostaDoServidor.json();
       })
@@ -63,14 +65,14 @@ export default function Home() {
         setSeguidores(respostaCompleta);
       })
 
-    fetch('https://api.github.com/users/carolandrade1/following')
+    const urlFollowing = `https://api.github.com/users/${githubUser}/following`
+    fetch(urlFollowing)
       .then(function (respostaDoServidor) {
         return respostaDoServidor.json();
       })
       .then(function (respostaCompleta) {
         setSeguindo(respostaCompleta);
       })
-
     // API DATOCMS GraphQL  
     fetch('https://graphql.datocms.com/', {
       method: 'POST',
@@ -92,7 +94,7 @@ export default function Home() {
       .then((resposta) => resposta.json())
       .then((respostaCompleta) => {
         const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
-        console.log(comunidadesVindasDoDato);
+        // console.log(comunidadesVindasDoDato);
         setComunidades(comunidadesVindasDoDato);
       })
 
@@ -110,7 +112,7 @@ export default function Home() {
 
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
           <Box>
-            <h1 className="title">Bem vindo(a), Carol!</h1>
+            <h1 className="title">Bem vindo(a), {githubUser}!</h1>
             <OrkutNostalgicIconSet />
           </Box>
           <Box>
@@ -134,7 +136,7 @@ export default function Home() {
               })
                 .then(async (response) => {
                   const dados = await response.json();
-                  console.log(dados.registroCriado);
+                  // console.log(dados.registroCriado);
                   const comunidade = dados.registroCriado;
                   const comunidadesAtualizadas = [...comunidades, comunidade]
                   setComunidades(comunidadesAtualizadas);
@@ -199,4 +201,31 @@ export default function Home() {
       </MainGrid>
     </>
   )
-};
+}
+
+export async function getServerSideProps(context) {
+  const cookies = nookies.get(context);
+  const token = cookies.USER_TOKEN;
+  const { githubUser } = jwt.decode(token);
+  const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
+    headers: {
+      Authorization: token
+    }
+  })
+  .then((resposta) => resposta.json())
+
+  // if(!isAuthenticated) {
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false,
+  //     }
+  //   }
+  // }
+
+  return {
+    props: {
+      githubUser
+    }, // will be passed to the page component as props
+  }
+}
