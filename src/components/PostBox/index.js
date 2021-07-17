@@ -47,6 +47,9 @@ const PostBox = styled(Box)`
     font-size: 12px;
     margin-bottom: 10px;
   }
+  p {
+    font-size: 14px;
+  }
 `;
 
 export default PostBox;

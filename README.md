@@ -38,7 +38,7 @@
   - Aula 05
     - [x] Fazer o logout da aplicação;
     - [ ] Mensagem de feedback quando não conseguir logar na aplicação;
-    - [ ] Criar página de perfil do usuário;
+    - [x] Criar página de perfil do usuário;
     - [x] Subir a sua aplicação na Vercel e compartilhar com a gente.
 
 

@@ -44,16 +44,13 @@ export default function LoginScreen() {
                                 Acesse agora mesmo com seu usuário do <strong>GitHub</strong>!
                             </p>
                             <input 
+                                required
                                 placeholder="Usuário" 
                                 value={githubUser}
                                 onChange={(evento) => {
                                     setGithubUser(evento.target.value)
                                 }}  
-                            />
-                            {githubUser.length === 0 
-                                ? 'Preencha o campo'
-                                : ''
-                            } 
+                            /> 
                             <button type="submit" aria-label="Login" style={{ background: '#2E7BB4' }}>
                                 Login
                             </button>

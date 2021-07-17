@@ -1,10 +1,13 @@
 import React from 'react';
 import nookies from 'nookies';
 import jwt from 'jsonwebtoken';
+
 import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
 import IndexPage from '../src/components/IndexPage';
 import PostBox from '../src/components/PostBox';
+import { ClapButton } from '@lyket/react';
+
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/alurakutCommons';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
 
@@ -26,6 +29,7 @@ function ProfileSidebar(propriedades) {
 }
 
 function ProfileRelationsBox(propriedades) {
+
   return (
     <ProfileRelationsBoxWrapper>
       <h2 className="smallTitle">{propriedades.title} ({propriedades.items.length})</h2>
@@ -53,11 +57,12 @@ function ProfileRelationsBox(propriedades) {
 }
 
 export default function Home(props) {
+  // USUÁRIO GITHUB
   const githubUser = props.githubUser;
   // COMUNIDADES
   const [comunidades, setComunidades] = React.useState([]);
-  // SEGUINDO
-  const [post, setPost] = React.useState([]);
+  // POST
+  const [posts, setPosts] = React.useState([]);
   // SEGUIDORES
   const [seguidores, setSeguidores] = React.useState([]);
   // SEGUINDO
@@ -106,7 +111,6 @@ export default function Home(props) {
       setComunidades(comunidadesVindasDoDato);
     })
     // // API DATOCMS GraphQL Post 
-    // const [post, setPost] = React.useState([]);
 
     fetch('https://graphql.datocms.com/', {
       method: 'POST',
@@ -128,7 +132,7 @@ export default function Home(props) {
       .then((respostaCompletaPost) => {
         const postVindosDoDato = respostaCompletaPost.data.allPosts;
         // console.log(postVindosDoDato);
-        setPost(postVindosDoDato);
+        setPosts(postVindosDoDato);
       })
 
   }, [])
@@ -225,9 +229,9 @@ export default function Home(props) {
               .then(async (response) => {
                 const dadosPost = await response.json();
                 // console.log(dados.registroCriado);
-                const posts = dadosPost.registroCriado;
-                const postAtualizados = [post, ...posts]
-                setPost(postAtualizados);
+                const post = dadosPost.registroCriado;
+                const postAtualizados = [...posts, post]
+                setPosts(postAtualizados);
               })
             }}>
               <div>
@@ -255,10 +259,10 @@ export default function Home(props) {
           </Box>
 
           <PostBox>
-            <h2 className="smallTitle">Comentarios ({post.length})</h2>
+            <h2 className="smallTitle">Comentarios ({posts.length})</h2>
 
             <ul>
-              {post.map((itemAtual) => {
+              {posts.map((itemAtual) => {
                 return (
                   <li key={itemAtual.id}>
                     <a href={`https://github.com/${itemAtual.name}`} target="_blank" rel="noopener noreferrer" title="Site do usuário">

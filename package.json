@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@lyket/react": "^1.4.7",
     "jsonwebtoken": "^8.5.1",
     "next": "latest",
     "nookies": "^2.5.2",
