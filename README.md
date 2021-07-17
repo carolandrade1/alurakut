@@ -36,7 +36,7 @@
     - [x] Fazer os scraps;
     - [x] Subir sua aplicação na Vercel.
   - Aula 05
-    - [ ] Fazer o logout da aplicação;
+    - [x] Fazer o logout da aplicação;
     - [ ] Mensagem de feedback quando não conseguir logar na aplicação;
     - [ ] Criar página de perfil do usuário;
     - [x] Subir a sua aplicação na Vercel e compartilhar com a gente.

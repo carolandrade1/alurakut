@@ -35,7 +35,7 @@ export function AlurakutMenu({ githubUser }) {
                 </nav>
 
                 <nav>
-                    <a href={`/logout`}>
+                    <a href={`/login`} title="Sair">
                         Sair
                     </a>
                     <div>
@@ -105,6 +105,7 @@ AlurakutMenu.Wrapper = styled.header`
       justify-content: flex-start;
     }
     button {
+      cursor: pointer;
       border: 0;
       background: transparent;
       align-self: center;
@@ -428,6 +429,7 @@ const AlurakutLoginScreen = css`
         }
         button {
           width: 100%;
+          cursor: pointer;
           display: block;
           border: 0;
           padding: 12px;
@@ -447,7 +449,7 @@ const AlurakutLoginScreen = css`
         text-align: center;
         a {
           text-decoration: none;
-          color: var(--colorPrimary);
+          color: #0a2994;
         }
       }
     }

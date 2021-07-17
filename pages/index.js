@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
 import IndexPage from '../src/components/IndexPage';
+import PostBox from '../src/components/PostBox';
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/alurakutCommons';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
 
@@ -19,7 +20,6 @@ function ProfileSidebar(propriedades) {
         </a>
       </p>
       <hr />
-
       <AlurakutProfileSidebarMenuDefault />
     </Box>
   )
@@ -42,6 +42,12 @@ function ProfileRelationsBox(propriedades) {
           );
         })}
       </ul>
+
+      <p>
+        <a className="boxLink" href={`/amigos`} >
+          Ver todos
+        </a>
+      </p>
     </ProfileRelationsBoxWrapper>
   )
 }
@@ -50,6 +56,8 @@ export default function Home(props) {
   const githubUser = props.githubUser;
   // COMUNIDADES
   const [comunidades, setComunidades] = React.useState([]);
+  // SEGUINDO
+  const [post, setPost] = React.useState([]);
   // SEGUIDORES
   const [seguidores, setSeguidores] = React.useState([]);
   // SEGUINDO
@@ -73,7 +81,7 @@ export default function Home(props) {
       .then(function (respostaCompleta) {
         setSeguindo(respostaCompleta);
       })
-    // API DATOCMS GraphQL  
+    // API DATOCMS GraphQL Comunidades 
     fetch('https://graphql.datocms.com/', {
       method: 'POST',
       headers: {
@@ -91,11 +99,36 @@ export default function Home(props) {
         }
       }` })
     })
+    .then((resposta) => resposta.json())
+    .then((respostaCompleta) => {
+      const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
+      // console.log(comunidadesVindasDoDato);
+      setComunidades(comunidadesVindasDoDato);
+    })
+    // // API DATOCMS GraphQL Post 
+    // const [post, setPost] = React.useState([]);
+
+    fetch('https://graphql.datocms.com/', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'd9935724b7a2faf1e7d9809795a09a',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        "query": `query {
+          allPosts {
+            id
+            name
+            text
+          }
+        }` })
+       })
       .then((resposta) => resposta.json())
-      .then((respostaCompleta) => {
-        const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
-        // console.log(comunidadesVindasDoDato);
-        setComunidades(comunidadesVindasDoDato);
+      .then((respostaCompletaPost) => {
+        const postVindosDoDato = respostaCompletaPost.data.allPosts;
+        // console.log(postVindosDoDato);
+        setPost(postVindosDoDato);
       })
 
   }, [])
@@ -115,13 +148,9 @@ export default function Home(props) {
             <h1 className="title">Bem vindo(a), {githubUser}!</h1>
             <OrkutNostalgicIconSet />
           </Box>
-          {/* <Box>
-            <h2 className="subTitle">O que você deseja fazer ?</h2>
-            <button aria-label="Criar comunidade" style={{ background: '#2E7BB4' }}>Criar Comunidade</button>
-            <button aria-label="Criar post" style={{ background: '#2E7BB4' }}>Criar Post</button>
-          </Box> */}
+
           <Box>
-            <h2 className="subTitle">O que você deseja fazer ?</h2>
+            <h2 className="subTitle">Crie sua comunidade</h2>
             <form onSubmit={function handleCriaComunidade(e) {
               e.preventDefault();
               const dadosDoForm = new FormData(e.target);
@@ -131,7 +160,6 @@ export default function Home(props) {
                 imageUrl: dadosDoForm.get('image'),
                 paginaUrl: dadosDoForm.get('url')
               }
-
               fetch('/api/comunidades', {
                 method: 'POST',
                 headers: {
@@ -139,13 +167,13 @@ export default function Home(props) {
                 },
                 body: JSON.stringify(comunidade),
               })
-                .then(async (response) => {
-                  const dados = await response.json();
-                  // console.log(dados.registroCriado);
-                  const comunidade = dados.registroCriado;
-                  const comunidadesAtualizadas = [...comunidades, comunidade]
-                  setComunidades(comunidadesAtualizadas);
-                })
+              .then(async (response) => {
+                const dados = await response.json();
+                // console.log(dados.registroCriado);
+                const comunidade = dados.registroCriado;
+                const comunidadesAtualizadas = [...comunidades, comunidade]
+                setComunidades(comunidadesAtualizadas);
+              })
             }}>
               <div>
                 <input
@@ -153,17 +181,17 @@ export default function Home(props) {
                   name="title"
                   aria-label="Qual vai ser o nome da sua comunidade"
                   type="text"
+                  required
                 />
               </div>
-              <div>
+              <div style={{ display: 'flex' }}>
                 <input
-                  placeholder="Coloque a URL da imagem para usarmos de capa"
+                  placeholder="Coloque a URL da imagem da capa"
                   name="image"
-                  aria-label="Coloque a URL para usarmos de capa"
+                  aria-label="Coloque a URL da imagem da capa"
                   type="text"
+                  required
                 />
-              </div>
-              <div>
                 <input
                   placeholder="Coloque a URL do site"
                   name="url"
@@ -176,6 +204,76 @@ export default function Home(props) {
               </button>
             </form>
           </Box>
+
+          <Box>
+            <h2 className="subTitle">Deixe seu comentario</h2>
+            <form onSubmit={function handleCriaPost(e) {
+              e.preventDefault();
+              const dadosDoForm = new FormData(e.target);
+
+              const post = {
+                name: dadosDoForm.get('name'),
+                text: dadosDoForm.get('text'),
+              }
+              fetch('/api/post', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(post),
+              })
+              .then(async (response) => {
+                const dadosPost = await response.json();
+                // console.log(dados.registroCriado);
+                const posts = dadosPost.registroCriado;
+                const postAtualizados = [post, ...posts]
+                setPost(postAtualizados);
+              })
+            }}>
+              <div>
+                <input
+                  placeholder="Usuário Github"
+                  name="name"
+                  aria-label="Usuário Github"
+                  type="text"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  placeholder="Deixe seu comentario"
+                  name="text"
+                  aria-label="Deixe seu comentario"
+                  type="text"
+                  required
+                />
+              </div>
+              <button type="submit" aria-label="Criar comentario" style={{ background: '#2E7BB4' }} >
+                Criar comentario
+              </button>
+            </form>
+          </Box>
+
+          <PostBox>
+            <h2 className="smallTitle">Comentarios ({post.length})</h2>
+
+            <ul>
+              {post.map((itemAtual) => {
+                return (
+                  <li key={itemAtual.id}>
+                    <a href={`https://github.com/${itemAtual.name}`} target="_blank" rel="noopener noreferrer" title="Site do usuário">
+                      <img src={`https://github.com/${itemAtual.name}.png`} alt="Foto usuário" />
+                    </a>
+                    <div>
+                      <span>@{itemAtual.name}</span>
+                      <p>{itemAtual.text}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </PostBox>
+
         </div>
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
@@ -195,6 +293,12 @@ export default function Home(props) {
                 );
               })}
             </ul>
+
+            <p>
+              <a className="boxLink" href={`/comunidades`} >
+                Ver todos
+              </a>
+            </p>
           </ProfileRelationsBoxWrapper>
 
           <ProfileRelationsBox title="Seguidores" items={seguidores} />

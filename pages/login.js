@@ -54,7 +54,7 @@ export default function LoginScreen() {
                                 ? 'Preencha o campo'
                                 : ''
                             } 
-                            <button type="submit" aria-label="Login">
+                            <button type="submit" aria-label="Login" style={{ background: '#2E7BB4' }}>
                                 Login
                             </button>
                         </form>
@@ -62,7 +62,7 @@ export default function LoginScreen() {
                         <footer className="box">
                             <p>
                                 Ainda não é membro? <br />
-                                <a href="/login">
+                                <a href="/login" style={{ color: '#226ca3' }}>
                                     <strong>
                                         ENTRAR JÁ
                                     </strong>
@@ -74,11 +74,11 @@ export default function LoginScreen() {
                     <footer className="footerArea">
                         <p>
                             ©2021 alura.com.br - 
-                            <a href="https://github.com/alura-challenges/alurakut/" title="Sobre o Alurakut" target="_blank" rel="noopener noreferrer">Sobre o Alurakut.br</a> -
-                            <a href="/">Centro de segurança</a> - 
-                            <a href="/">Privacidade</a> - 
-                            <a href="/">Termos</a> - 
-                            <a href="/">Contato</a>
+                            <a href="https://github.com/alura-challenges/alurakut/" title="Sobre o Alurakut" target="_blank" rel="noopener noreferrer"> Sobre o Alurakut.br</a> -
+                            <a href="/"> Centro de segurança</a> - 
+                            <a href="/"> Privacidade</a> - 
+                            <a href="/"> Termos</a> - 
+                            <a href="/"> Contato</a>
                         </p>
                     </footer>
                 </div>

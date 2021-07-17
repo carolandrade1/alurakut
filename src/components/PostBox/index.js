@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import Box from '../Box';
 
-export const ProfileRelationsBoxWrapper = styled(Box)`
+const PostBox = styled(Box)`
   ul {
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: 1fr 1fr 1fr; 
+    display: flex;
+    flex-direction: column;
     height: auto;
     list-style: none;
   }
@@ -16,27 +15,17 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
     height: 100%;
     position: relative;
   }
-  ul li a {
+  li {
+    display: flex;
+    padding: 10px 0;
+  }
+  a {
     display: inline-block;
-    height: 102px;
+    height: 70px;
+    width: 70px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    span {
-      color: #FFFFFF;
-      font-size: 10px;
-      position: absolute;
-      left: 0;
-      bottom: 10px;
-      z-index: 2;
-      padding: 0 4px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-    }
     &:after {
       content: "";
       display: block;
@@ -49,4 +38,15 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
       background-image: linear-gradient(0deg,#00000073,transparent);
     }
   }
+  div {
+    padding-left: 10px;
+    width: 85%;
+  }
+  span {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
 `;
+
+export default PostBox;
