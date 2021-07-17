@@ -32,7 +32,7 @@ function ProfileRelationsBox(propriedades) {
 
   return (
     <ProfileRelationsBoxWrapper>
-      <h2 className="smallTitle">{propriedades.title} ({propriedades.items.length})</h2>
+      <h2 className="smallTitle">{propriedades.title} ({propriedades.total})</h2>
 
       <ul>
         {propriedades.items.slice(0, 6).map((itemAtual) => {
@@ -67,8 +67,15 @@ export default function Home(props) {
   const [seguidores, setSeguidores] = React.useState([]);
   // SEGUINDO
   const [seguindo, setSeguindo] = React.useState([]);
+  // Perfil
+  const [perfil, setPerfil] = React.useState([]);
 
   React.useEffect(function () {
+    const urlPerfil = `https://api.github.com/users/${githubUser}`;
+    fetch(urlPerfil)
+      .then(resposta => resposta.json())
+      .then(respostaJson => setPerfil(respostaJson));
+
     const urlFollowers = `https://api.github.com/users/${githubUser}/followers`
     fetch(urlFollowers)
       .then(function (respostaDoServidor) {
@@ -104,14 +111,13 @@ export default function Home(props) {
         }
       }` })
     })
-    .then((resposta) => resposta.json())
-    .then((respostaCompleta) => {
-      const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
-      // console.log(comunidadesVindasDoDato);
-      setComunidades(comunidadesVindasDoDato);
-    })
-    // // API DATOCMS GraphQL Post 
-
+      .then((resposta) => resposta.json())
+      .then((respostaCompleta) => {
+        const comunidadesVindasDoDato = respostaCompleta.data.allCommunities;
+        // console.log(comunidadesVindasDoDato);
+        setComunidades(comunidadesVindasDoDato);
+      })
+    // API DATOCMS GraphQL Post 
     fetch('https://graphql.datocms.com/', {
       method: 'POST',
       headers: {
@@ -127,7 +133,7 @@ export default function Home(props) {
             text
           }
         }` })
-       })
+    })
       .then((resposta) => resposta.json())
       .then((respostaCompletaPost) => {
         const postVindosDoDato = respostaCompletaPost.data.allPosts;
@@ -142,7 +148,7 @@ export default function Home(props) {
       <IndexPage />
       <AlurakutMenu />
       <MainGrid>
-        
+
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
           <ProfileSidebar githubUser={githubUser} />
         </div>
@@ -171,13 +177,13 @@ export default function Home(props) {
                 },
                 body: JSON.stringify(comunidade),
               })
-              .then(async (response) => {
-                const dados = await response.json();
-                // console.log(dados.registroCriado);
-                const comunidade = dados.registroCriado;
-                const comunidadesAtualizadas = [...comunidades, comunidade]
-                setComunidades(comunidadesAtualizadas);
-              })
+                .then(async (response) => {
+                  const dados = await response.json();
+                  // console.log(dados.registroCriado);
+                  const comunidade = dados.registroCriado;
+                  const comunidadesAtualizadas = [...comunidades, comunidade]
+                  setComunidades(comunidadesAtualizadas);
+                })
             }}>
               <div>
                 <input
@@ -226,13 +232,13 @@ export default function Home(props) {
                 },
                 body: JSON.stringify(post),
               })
-              .then(async (response) => {
-                const dadosPost = await response.json();
-                // console.log(dados.registroCriado);
-                const post = dadosPost.registroCriado;
-                const postAtualizados = [...posts, post]
-                setPosts(postAtualizados);
-              })
+                .then(async (response) => {
+                  const dadosPost = await response.json();
+                  // console.log(dados.registroCriado);
+                  const post = dadosPost.registroCriado;
+                  const postAtualizados = [...posts, post]
+                  setPosts(postAtualizados);
+                })
             }}>
               <div>
                 <input
@@ -305,9 +311,9 @@ export default function Home(props) {
             </p>
           </ProfileRelationsBoxWrapper>
 
-          <ProfileRelationsBox title="Seguidores" items={seguidores} />
+          <ProfileRelationsBox title="Seguidores" items={seguidores} total={perfil.followers} />
 
-          <ProfileRelationsBox title="Seguindo" items={seguindo} />
+          <ProfileRelationsBox title="Seguindo" items={seguindo} total={perfil.following} />
 
         </div>
 
@@ -333,7 +339,7 @@ export async function getServerSideProps(context) {
       Authorization: token
     }
   })
-  .then((resposta) => resposta.json())
+    .then((resposta) => resposta.json())
 
   // if(!isAuthenticated) {
   //   return {
