@@ -42,8 +42,9 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <Provider apiKey="pt_799a37334485b84035b415703a7af9">
         <Component {...pageProps} />
-        <Provider apiKey="pt_799a37334485b84035b415703a7af9" />
+        </Provider>
       </ThemeProvider>
     </>
   )

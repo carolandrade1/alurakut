@@ -40,7 +40,6 @@ const PostBox = styled(Box)`
   }
   div {
     padding-left: 10px;
-    width: 85%;
   }
   span {
     display: block;

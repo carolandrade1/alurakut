@@ -4,9 +4,9 @@ import jwt from 'jsonwebtoken';
 
 import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
+import CustomizedInput from '../src/components/CustomizedInput';
 import IndexPage from '../src/components/IndexPage';
 import PostBox from '../src/components/PostBox';
-import { ClapButton } from '@lyket/react';
 
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/alurakutCommons';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
@@ -46,7 +46,7 @@ function ProfileRelationsBox(propriedades) {
           );
         })}
       </ul>
-
+      <hr />
       <p>
         <a className="boxLink" href={`/amigos`} >
           Ver todos
@@ -59,22 +59,32 @@ function ProfileRelationsBox(propriedades) {
 export default function Home(props) {
   // USUÁRIO GITHUB
   const githubUser = props.githubUser;
-  // COMUNIDADES
-  const [comunidades, setComunidades] = React.useState([]);
-  // POST
-  const [posts, setPosts] = React.useState([]);
+  // NUMEROS SEGUIDORES-SEGUINDO
+  const [numerosSegui, setNumerosSegui] = React.useState([]);
   // SEGUIDORES
   const [seguidores, setSeguidores] = React.useState([]);
   // SEGUINDO
   const [seguindo, setSeguindo] = React.useState([]);
-  // Perfil
-  const [perfil, setPerfil] = React.useState([]);
+  // COMUNIDADES
+  const [comunidades, setComunidades] = React.useState([]);
+  // NOME COMUNIDADES
+  const [comunidadesTitle, setComunidadesTitle] = React.useState([]);
+  // IMAGE COMUNIDADES
+  const [comunidadesImage, setComunidadesImage] = React.useState([]);
+  // URL COMUNIDADES
+  const [comunidadesUrl, setComunidadesUrl] = React.useState([]);
+  // POST
+  const [posts, setPosts] = React.useState([]);
+  // NOME POST
+  const [nameValue, setNameValue] = React.useState('');
+  // TEXTO POST
+  const [textValue, setTextValue] = React.useState('');
 
   React.useEffect(function () {
-    const urlPerfil = `https://api.github.com/users/${githubUser}`;
-    fetch(urlPerfil)
+    const urlNumeros = `https://api.github.com/users/${githubUser}`;
+    fetch(urlNumeros)
       .then(resposta => resposta.json())
-      .then(respostaJson => setPerfil(respostaJson));
+      .then(respostaJson => setNumerosSegui(respostaJson));
 
     const urlFollowers = `https://api.github.com/users/${githubUser}/followers`
     fetch(urlFollowers)
@@ -183,30 +193,34 @@ export default function Home(props) {
                   const comunidade = dados.registroCriado;
                   const comunidadesAtualizadas = [...comunidades, comunidade]
                   setComunidades(comunidadesAtualizadas);
+                  setcomunidadesTitle('');
+                  setComunidadesImage('');
+                  setComunidadesUrl('');
                 })
             }}>
               <div>
-                <input
+                <CustomizedInput
                   placeholder="Qual vai ser o nome da sua comunidade?"
                   name="title"
-                  aria-label="Qual vai ser o nome da sua comunidade"
-                  type="text"
-                  required
+                  aria-label="Qual vai ser o nome da sua comunidade?"
+                  value={comunidadesTitle}
+                  onValueChange={setComunidadesTitle}
                 />
               </div>
               <div style={{ display: 'flex' }}>
-                <input
+                <CustomizedInput
                   placeholder="Coloque a URL da imagem da capa"
                   name="image"
                   aria-label="Coloque a URL da imagem da capa"
-                  type="text"
-                  required
+                  value={comunidadesImage}
+                  onValueChange={setComunidadesImage}
                 />
-                <input
+                <CustomizedInput
                   placeholder="Coloque a URL do site"
                   name="url"
                   aria-label="Coloque a URL do site"
-                  type="text"
+                  value={comunidadesUrl}
+                  onValueChange={setComunidadesUrl}
                 />
               </div>
               <button type="submit" aria-label="Criar comunidade" style={{ background: '#2E7BB4' }} >
@@ -236,28 +250,39 @@ export default function Home(props) {
                   const dadosPost = await response.json();
                   // console.log(dados.registroCriado);
                   const post = dadosPost.registroCriado;
-                  const postAtualizados = [...posts, post]
+                  const postAtualizados = [post, ...posts]
                   setPosts(postAtualizados);
+                  setNameValue('');
+                  setTextValue('');
                 })
             }}>
               <div>
-                <input
+                <CustomizedInput
                   placeholder="Usuário Github"
                   name="name"
                   aria-label="Usuário Github"
-                  type="text"
-                  required
+                  value={nameValue}
+                  onValueChange={setNameValue}
                 />
               </div>
               <div>
-                <input
-                  placeholder="Deixe seu comentario"
+                <CustomizedInput
+                  placeholder="Deixei seu comentario"
                   name="text"
-                  aria-label="Deixe seu comentario"
-                  type="text"
-                  required
+                  aria-label="Deixei seu comentario"
+                  value={textValue}
+                  onValueChange={setTextValue}
                 />
               </div>
+              {/* <input
+                  placeholder="Usuário Github"
+                  name="name"
+                  aria-label="Usuário Github"
+                  value={nameValue}
+                  type="text"
+                  onChange={e => setNameValue(e.target.value)}
+                  required
+                /> */}
               <button type="submit" aria-label="Criar comentario" style={{ background: '#2E7BB4' }} >
                 Criar comentario
               </button>
@@ -274,7 +299,7 @@ export default function Home(props) {
                     <a href={`https://github.com/${itemAtual.name}`} target="_blank" rel="noopener noreferrer" title="Site do usuário">
                       <img src={`https://github.com/${itemAtual.name}.png`} alt="Foto usuário" />
                     </a>
-                    <div>
+                    <div style={{ flexGrow: '2' }}>
                       <span>@{itemAtual.name}</span>
                       <p>{itemAtual.text}</p>
                     </div>
@@ -303,7 +328,7 @@ export default function Home(props) {
                 );
               })}
             </ul>
-
+            <hr />
             <p>
               <a className="boxLink" href={`/comunidades`} >
                 Ver todos
@@ -311,9 +336,9 @@ export default function Home(props) {
             </p>
           </ProfileRelationsBoxWrapper>
 
-          <ProfileRelationsBox title="Seguidores" items={seguidores} total={perfil.followers} />
+          <ProfileRelationsBox title="Seguidores" items={seguidores} total={numerosSegui.followers} />
 
-          <ProfileRelationsBox title="Seguindo" items={seguindo} total={perfil.following} />
+          <ProfileRelationsBox title="Seguindo" items={seguindo} total={numerosSegui.following} />
 
         </div>
 
