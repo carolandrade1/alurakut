@@ -1,6 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { AlurakutStyles } from '../src/lib/alurakutCommons';
-import { Provider } from '@lyket/react';
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -42,9 +41,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Provider apiKey="pt_799a37334485b84035b415703a7af9">
         <Component {...pageProps} />
-        </Provider>
       </ThemeProvider>
     </>
   )

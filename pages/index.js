@@ -11,15 +11,15 @@ import PostBox from '../src/components/PostBox';
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/alurakutCommons';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
 
-function ProfileSidebar(propriedades) {
+function ProfileSidebar(props) {
   // console.log(propriedades);
   return (
     <Box as="aside">
-      <img src={`https://github.com/${propriedades.githubUser}.png`} alt="Foto do usuário" style={{ borderRadius: '8px' }} />
+      <img src={`https://github.com/${props.githubUser}.png`} alt="Foto do usuário" style={{ borderRadius: '8px' }} />
       <hr />
       <p>
-        <a className="boxLink" href={`https://github.com/${propriedades.githubUser}`} title="Nome do usuário" target="_blank" rel="noopener noreferrer" >
-          @{propriedades.githubUser}
+        <a className="boxLink" href={`https://github.com/${props.githubUser}`} title="Nome do usuário" target="_blank" rel="noopener noreferrer" >
+          @{props.githubUser}
         </a>
       </p>
       <hr />
@@ -28,14 +28,14 @@ function ProfileSidebar(propriedades) {
   )
 }
 
-function ProfileRelationsBox(propriedades) {
+function ProfileRelationsBox(props) {
 
   return (
     <ProfileRelationsBoxWrapper>
-      <h2 className="smallTitle">{propriedades.title} ({propriedades.total})</h2>
+      <h2 className="smallTitle">{props.title} ({props.total})</h2>
 
       <ul>
-        {propriedades.items.slice(0, 6).map((itemAtual) => {
+        {props.items.slice(0, 6).map((itemAtual) => {
           return (
             <li key={itemAtual.id}>
               <a href={itemAtual.html_url} target="_blank" rel="noopener noreferrer" title="Site do usuário">
@@ -150,13 +150,12 @@ export default function Home(props) {
         // console.log(postVindosDoDato);
         setPosts(postVindosDoDato);
       })
-
   }, [])
 
   return (
     <>
       <IndexPage />
-      <AlurakutMenu />
+      <AlurakutMenu githubUser={githubUser} />
       <MainGrid>
 
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>

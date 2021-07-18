@@ -1,18 +1,54 @@
 <h1 align="center">Imersão React - Alurakut</h1>
-<h3 align="justify">A Imersão React é gratuita e é voltada para profissionais, estudantes e para todo mundo que quer aprender mais sobre front-end. Nesta imersão vamos mergulhar no passado e dominar o futuro com o Alurakut! O projeto é uma versão do Orkut, criado com React, styled-components e next/js </h3>
+<h2 align="justify">A Imersão React é gratuita e é voltada para profissionais, estudantes e para todo mundo que quer aprender mais sobre front-end. Nesta imersão vamos mergulhar no passado e dominar o futuro com o Alurakut! O projeto é uma versão do Orkut, criado com React, styled-components e next/js. </h2>
 
-<h3 align="center"> 
+<h2 align="center"> 
 
-[Clique aqui para ver como está o andamento do projeto!](https://alurakut-cas.vercel.app/) 
+[Clique aqui para ver o projeto final!](https://alurakut-cas.vercel.app/) 
 
-</h3>
+</h2>
 
-## 📺 Imagem
-
-![projetoatual](https://user-images.githubusercontent.com/65976843/125528271-6d04c83d-ede2-480c-af54-33d25e038f2d.PNG)
+## 📺 Video
 
 
-## 📚 Desafios
+
+## 💻 Linguagens e tecnologias utilizadas
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> </p>
+
+
+
+## Funcionalidades da pagina
+  - Logout funcionando, 
+  - Campos dos formulários obrigatórios, 
+  - Inputs dos formulários vazios após post,
+  - Página de amigos/comunidades, 
+  - Seguidores/Seguindo de acordo com o usuário,
+  - Possibilidade de criar comunidades,
+  - Agora é possível adicionar comentários na pagina   
+
+Aproveita e deixa algum comentário sobre o projeto ou alguma sugestão!(será muito bem-vinda).
+
+## Instalação
+
+<code>
+  - Clonar repositorio
+  $ git clone https://github.com/carolandrade1/alurakut.git && cd alurakut
+
+  - Instalar dependencias
+  $ npm install
+
+  - Rodar aplicativo
+  $ npm run dev
+</code>
+
+<a href="styled-components.md">Example app with styled-components</a>
+
+## 👩‍🏫/👨‍🏫 Instrutores
+
+- <a href="https://twitter.com/omariosouto">Mario Souto</a> <br>
+- <a href="https://twitter.com/juunegreiros">Juliana Negreiros</a> <br>
+- <a href="https://twitter.com/paulo_caelum">Paulo Silveira</a> <br>
+
+## 📚 Desafios da Imersão
   - Aula 01
     - [x] Pegar os dados da API do GitHub e listar seus seguidores;
     - [x] Adicionar quão confiável, legal e sexy você é;
@@ -29,7 +65,7 @@
   - Aula 03
     - [x] Terminar de listar seus seguidores através da api do Github;
     - [x] Adicionar suas comunidades no DatoCMS;
-    - [ ] Organizar os seus dados, pensando no que irá querer que apareça no seu Alurakut e criando os modelos que precisar;
+    - [x] Organizar os seus dados, pensando no que irá querer que apareça no seu Alurakut e criando os modelos que precisar;
     - [x] Subir sua aplicação na Vercel.
   - Aula 04
     - [x] Configurar suas variáveis de ambiente;
@@ -40,12 +76,6 @@
     - [ ] Mensagem de feedback quando não conseguir logar na aplicação;
     - [x] Criar página de perfil do usuário;
     - [x] Subir a sua aplicação na Vercel e compartilhar com a gente.
-
-
-
-## 💻 Linguagens e tecnologias utilizadas
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> </p>
-
 
 ## 📂 Referencias
   <details>
@@ -87,26 +117,3 @@
       - <a href="https://www.postman.com/">Postman</a> <br>
       - <a href="https://www.youtube.com/watch?v=f8a-qwKC5yk">Ju Negreiros - Destructuring</a> <br>
   </details>
-
-## 👩‍🏫/👨‍🏫 Instrutores
-
-- <a href="https://twitter.com/omariosouto">Mario Souto</a> <br>
-- <a href="https://twitter.com/juunegreiros">Juliana Negreiros</a> <br>
-- <a href="https://twitter.com/paulo_caelum">Paulo Silveira</a> <br>
-
-<!-- ## Instalação
-
-<code>
-  # Clonar repositorio
-  $ git clone https://github.com/carolandrade1/alurakut.git && cd alurakut
-
-  # Instalar dependencias
-  $ yarn
-
-  # Rodar aplicativo
-  $ npm run dev
-
-</code> -->
-
-
-## <a href="styled-components.md">Example app with styled-components</a>
