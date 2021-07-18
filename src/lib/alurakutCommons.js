@@ -29,7 +29,7 @@ export function AlurakutMenu({ githubUser }) {
       <div className="container">
         <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} alt="Logo Alurakut" />
 
-        <nav style={{ flex: 1 }}>
+        <nav style={{ flex: 1, display: 'flex' }}>
           {[{ name: 'Inicio', slug: '/' }, { name: 'Amigos', slug: '/amigos' }, { name: 'Comunidades', slug: '/comunidades' }].map((menuItem) => (
             <Link key={`key__${menuItem.name.toLocaleLowerCase()}`} href={`${menuItem.slug.toLocaleLowerCase()}`}>
               {menuItem.name}
@@ -38,7 +38,7 @@ export function AlurakutMenu({ githubUser }) {
         </nav>
 
         <nav>
-          <a href='#' onClick={
+          <a href='/' onClick={
             () => {
               // const cookies = nookies.get('/')
               nookies.destroy(null, 'USER_TOKEN')
@@ -128,6 +128,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
     nav {
       display: none;
+      padding: 0px;
       @media(min-width: 860px) {
         display: flex;
         padding-left: 5px;
@@ -135,7 +136,7 @@ AlurakutMenu.Wrapper = styled.header`
       a {
         font-size: 12px;
         color: white;
-        padding: 10px 16px;
+        padding: 10px 14px;
         position: relative;
         text-decoration: none;
         &:after {
@@ -199,6 +200,7 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
 // AlurakutProfileSidebarMenuDefault
 // ================================================================================================================
 export function AlurakutProfileSidebarMenuDefault() {
+  const router = useRouter();
   return (
     <AlurakutProfileSidebarMenuDefault.Wrapper>
       <nav>
@@ -225,7 +227,13 @@ export function AlurakutProfileSidebarMenuDefault() {
           <img src={`${BASE_URL}/icons/plus.svg`} alt="Ícone Github Trends" />
           GitHub Trends
         </a>
-        <a href="/logout">
+        <a href="/" onClick={
+          () => {
+            // const cookies = nookies.get('/')
+            nookies.destroy(null, 'USER_TOKEN')
+            router.push('/login')
+          }
+        }>
           <img src={`${BASE_URL}//icons/logout.svg`} alt="Ícone Sair" />
           Sair
         </a>

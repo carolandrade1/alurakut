@@ -20,10 +20,9 @@
   - Logout funcionando, 
   - Campos dos formulários obrigatórios, 
   - Inputs dos formulários vazios após post,
-  - Página de amigos/comunidades, 
   - Seguidores/Seguindo de acordo com o usuário,
   - Possibilidade de criar comunidades,
-  - Agora é possível adicionar comentários na pagina   
+  - Adicionar comentários na pagina.   
 
 Aproveita e deixa algum comentário sobre o projeto ou alguma sugestão!(será muito bem-vinda).
 
@@ -76,6 +75,15 @@ Aproveita e deixa algum comentário sobre o projeto ou alguma sugestão!(será m
     - [ ] Mensagem de feedback quando não conseguir logar na aplicação;
     - [x] Criar página de perfil do usuário;
     - [x] Subir a sua aplicação na Vercel e compartilhar com a gente.
+
+## 📚 Pesquisar/Aprender
+
+  - Entender melhor como funciona a ligação entre as paginas,
+  - 'Puxar' o resultado do API para outras paginas,
+  - Organizar melhor os arquivos,
+  - Entender como a acessibilidade funciona no React (encontrei alguns desafios nessa parte),
+  - Componetizar melhor as tag para fazer com que as paginas tenham menos informações,
+  - Pesquisar boas práticas com React e NextJs.
 
 ## 📂 Referencias
   <details>
