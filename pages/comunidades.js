@@ -74,7 +74,7 @@ export default function menuComunidades(props) {
                         <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
 
                         <ul>
-                            {comunidades.slice(0, 6).map((itemAtual) => {
+                            {comunidades.map((itemAtual) => {
                                 return (
                                     <li key={itemAtual.id}>
                                         <a href={itemAtual.paginaUrl} target="_blank" rel="noopener noreferrer" title="Site da comunidade" style={{ height: '200px', width: '100%' }} >

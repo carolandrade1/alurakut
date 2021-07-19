@@ -29,7 +29,7 @@ export function AlurakutMenu({ githubUser }) {
       <div className="container">
         <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} alt="Logo Alurakut" />
 
-        <nav style={{ flex: 1, display: 'flex' }}>
+        <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/' }, { name: 'Amigos', slug: '/amigos' }, { name: 'Comunidades', slug: '/comunidades' }].map((menuItem) => (
             <Link key={`key__${menuItem.name.toLocaleLowerCase()}`} href={`${menuItem.slug.toLocaleLowerCase()}`}>
               {menuItem.name}
@@ -128,7 +128,6 @@ AlurakutMenu.Wrapper = styled.header`
     }
     nav {
       display: none;
-      padding: 0px;
       @media(min-width: 860px) {
         display: flex;
         padding-left: 5px;
@@ -208,22 +207,22 @@ export function AlurakutProfileSidebarMenuDefault() {
           <img src={`${BASE_URL}/icons/user.svg`} alt="Ícone Perfil" />
           Perfil
         </a>
-        <a href="/">
+        <a href="/amigos">
           <img src={`${BASE_URL}/icons/book.svg`} alt="Ícone Recados" />
-          Recados
+          Amigos
         </a>
-        <a href="/">
+        {/* <a href="/">
           <img src={`${BASE_URL}/icons/camera.svg`} alt="Ícone Fotos" />
           Fotos
-        </a>
-        <a href="/">
+        </a> */}
+        <a href="/comunidades">
           <img src={`${BASE_URL}/icons/sun.svg`} alt="Ícone Depoimentos" />
-          Depoimentos
+          Comunidades
         </a>
       </nav>
       <hr />
       <nav>
-        <a href="/">
+        <a href="https://github.com/trending" target="_blank" rel="noopener noreferrer" title="Github Trends">
           <img src={`${BASE_URL}/icons/plus.svg`} alt="Ícone Github Trends" />
           GitHub Trends
         </a>
