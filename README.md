@@ -23,7 +23,6 @@ Aproveita e deixa algum comentário sobre o projeto ou alguma sugestão!(será m
 
 ## Instalação
 
-<code>
     - Clonar repositorio
     $ git clone https://github.com/carolandrade1/alurakut.git && cd alurakut
 
@@ -31,7 +30,7 @@ Aproveita e deixa algum comentário sobre o projeto ou alguma sugestão!(será m
     $ npm install
 
     - Rodar aplicativo
-    $ npm run dev</code>
+    $ npm run dev
 
 <a href="styled-components.md">Example app with styled-components</a>
 
